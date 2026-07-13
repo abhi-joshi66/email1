@@ -26,7 +26,7 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       callbackURL:
         process.env.NODE_ENV === "production"
-          ? "http://localhost:5000/auth/google/callback"
+          ? "https://email1-h6of.onrender.com/auth/google/callback"
           : "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {

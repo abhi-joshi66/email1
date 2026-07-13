@@ -6,7 +6,21 @@ require("./models/user");
 require("./services/passport");
 const keys = require("./config/keys");
 
-mongoose.connect(keys.mongoURI);
+mongoose
+  .connect(keys.mongoURI, {
+    ssl: true,
+    retryWrites: true,
+    w: "majority",
+    maxPoolSize: 5,
+    minPoolSize: 2,
+    maxIdleTimeMS: 45000,
+    socketTimeoutMS: 45000,
+    serverSelectionTimeoutMS: 5000,
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1);
+  });
 
 const app = express();
 
