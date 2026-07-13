@@ -24,10 +24,12 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL:
-        process.env.NODE_ENV === "production"
-          ? "https://email1-h6of.onrender.com/auth/google/callback"
-          : "/auth/google/callback",
+      callbackURL: "/auth/google/callback",
+      proxy: true, // Add this line to handle proxy issues
+      // callbackURL:
+      //   process.env.NODE_ENV === "production"
+      //     ? "https://email1-h6of.onrender.com/auth/google/callback"
+      //     : "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {
       console.log("Access Token:", accessToken);
