@@ -10,7 +10,7 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm start --prefix client",
+    "client": "PORT=3000 npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "postinstall": "npm install --prefix client",
     "render-build": "npm install && npm install --prefix client"
