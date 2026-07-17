@@ -1,11 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import Landing from "./Landing";
 
 const App = () => {
   return (
     <Router>
       <div>
-        <h1>Welcome to the Email Project</h1>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Landing} />
+        </Switch>
       </div>
     </Router>
   );
