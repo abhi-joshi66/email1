@@ -9,7 +9,7 @@ module.exports = (app) => {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
-      res.redirect("/");
+      res.redirect("/surveys");
     },
   );
 
@@ -25,6 +25,6 @@ module.exports = (app) => {
     //   res.send(req.user);
     // });
     req.logout();
-    res.send(req.user);
+    res.redirect("/");
   });
 };
