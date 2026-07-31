@@ -1,10 +1,8 @@
 const requireLogin = require("../middlewares/requireLogin");
-const requireCredits = require("../middlewares/requireCredits");
 const stripe = require("stripe")(require("../config/keys").stripeSecretKey);
 
 module.exports = (app) => {
-  //   app.post("/api/stripe",requireLogin,requireCredits , async (req, res) => {
-  app.post("/api/stripe", requireLogin, requireCredits, async (req, res) => {
+  app.post("/api/stripe", requireLogin, async (req, res) => {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: 500,
       currency: "usd",
@@ -16,7 +14,7 @@ module.exports = (app) => {
         },
       },
       confirmation_method: "manual",
-      confirm: "true",
+      confirm: true,
     });
 
     req.user.credits += 5;
