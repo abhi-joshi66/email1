@@ -5,20 +5,18 @@
 //   const mailgun = new Mailgun(FormData);
 //   const mg = mailgun.client({
 //     username: "api",
-//     key:
-//       process.env.API_KEY ||
-//       """,
+//     key: process.env.MAILGUN_API_KEY || "<your-mailgun-api-key>",
 //     // When you have an EU-domain, you must specify the endpoint:
 //     // url: "https://api.eu.mailgun.net"
 //   });
 //   try {
 //     const data = await mg.messages.create(
-//       "sandboxc2e4a267cc0e496cb8dc7231c6fb7baf.mailgun.org",
+//       "your-mailgun-domain.example",
 //       {
-//         from: "Mailgun Sandbox <postmaster@sandboxc2e4a267cc0e496cb8dc7231c6fb7baf.mailgun.org>",
-//         to: ["Abhijit Joshi <abhijitjoshi27601@gmail.com>"],
-//         subject: "Hello Abhijit Joshi",
-//         text: "Congratulations Abhijit Joshi, you just sent an email with Mailgun! You are truly awesome!",
+//         from: "Mailgun Sandbox <postmaster@your-mailgun-domain.example>",
+//         to: ["Example User <example@example.com>"],
+//         subject: "Hello",
+//         text: "This is a sample message.",
 //       },
 //     );
 
