@@ -5,4 +5,7 @@ module.exports = {
   cookieKey: process.env.COOKIE_KEY,
   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
   stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  resendApiKey: process.env.RESEND_API_KEY,
+  resendFromEmail: process.env.RESEND_FROM_EMAIL,
+  redirectDomain: process.env.REDIRECT_DOMAIN,
 };

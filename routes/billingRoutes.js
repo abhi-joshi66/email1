@@ -1,5 +1,5 @@
-// const requireLogin = require("../middlewares/requireLogin");
-// const requireCredits = require("../middlewares/requireCredits");
+const requireLogin = require("../middlewares/requireLogin");
+const requireCredits = require("../middlewares/requireCredits");
 const stripe = require("stripe")(require("../config/keys").stripeSecretKey);
 
 // module.exports = (app) => {
@@ -20,7 +20,7 @@ const stripe = require("stripe")(require("../config/keys").stripeSecretKey);
 
 module.exports = (app) => {
   //   app.post("/api/stripe",requireLogin,requireCredits , async (req, res) => {
-  app.post("/api/stripe", async (req, res) => {
+  app.post("/api/stripe", requireLogin, requireCredits, async (req, res) => {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: 500,
       currency: "usd",
