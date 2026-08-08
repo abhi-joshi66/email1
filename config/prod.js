@@ -7,5 +7,6 @@ module.exports = {
   stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
   resendApiKey: process.env.RESEND_API_KEY,
   resendFromEmail: process.env.RESEND_FROM_EMAIL,
+  resendWebhookSecret: process.env.RESEND_WEBHOOK_SECRET,
   redirectDomain: process.env.REDIRECT_DOMAIN,
 };
